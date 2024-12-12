@@ -19,3 +19,8 @@ Video anomaly detection plays a significant role in intelligent surveillance sys
 ```
 ## :gem: Framework
 Our proposed multi-scale spiking fusion module (MSF) captures both multi-resolution local spiking dependencies (light green block) within individual clip, and global spiking dependencies (light yellow block) between event clips. Finally, these dependencies are seamlessly integrated based on the unique characteristics of the spiking feature (light blue block).
+
+## 💘 Acknowledgements
+We thank the [SpikingJelly] (https://github.com/fangwei123456/spikingjelly) library for a quickly implement.
+
+# :newspaper: Citation 
