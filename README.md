@@ -6,7 +6,7 @@ Video anomaly detection plays a significant role in intelligent surveillance sys
 
 ### :fire: What's New
 - [2024.12.09] Our paper is accepted by AAAI-2025 !!!
-- [2024.12.12] UCF-Crime-DVS and pre-trained feature are all released.
+- [2024.12.12] The raw event file and pre-trained feature of UCF-Crime-DVS are all released.
 
 ### :dvd: Dataset Download
 
