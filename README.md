@@ -8,9 +8,9 @@ Video anomaly detection plays a significant role in intelligent surveillance sys
 - [2024.12.09] Our paper is accepted by AAAI-2025 !!!
 - [2024.12.12] The raw event file and pre-trained feature of UCF-Crime-DVS are all released.
 
-### :video_camera: Dataset 
+### :video_camera: UCF-Crime-DVS_samples
 <p align="center">
-  <img src="./figures/dataset.png" alt="EventVOT_samples" width="800"/>
+  <img src="./figures/dataset.png" alt="UCF-Crime-DVS_samples" width="800"/>
 </p>
 
 ### :dvd: Dataset Download
@@ -24,7 +24,9 @@ Video anomaly detection plays a significant role in intelligent surveillance sys
 ```
 ### :gem: Framework
 Our proposed multi-scale spiking fusion module (MSF) captures both multi-resolution local spiking dependencies (light green block) within individual clip, and global spiking dependencies (light yellow block) between event clips. Finally, these dependencies are seamlessly integrated based on the unique characteristics of the spiking feature (light blue block).
-![Framework](figures/framework.png)
+<p align="center">
+  <img src="./figures/framework.png" alt="Framework" width="800"/>
+</p>
 
 ### 💘 Acknowledgements
 We thank the [SpikingJelly](https://github.com/fangwei123456/spikingjelly) library for a quickly implement.
