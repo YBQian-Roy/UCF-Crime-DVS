@@ -14,6 +14,9 @@ Video anomaly detection plays a significant role in intelligent surveillance sys
 </p>
 
 ### :dvd: Dataset Download
+<p align="center">
+  <img src="./figures/table.png" alt="Overview of various DVS datasets" width="800"/>
+</p>
 
 * **Download from Baidu Disk**: 
 ```
