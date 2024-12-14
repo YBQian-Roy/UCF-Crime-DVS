@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./figures/caption1.png" width="800">
+<img src="./figures/caption1.png" width="600">
 
 **The First Event-based Video Anomaly Detection Benchmark Dataset**
 
