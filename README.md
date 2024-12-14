@@ -45,7 +45,7 @@ Our proposed multi-scale spiking fusion module (MSF) captures both multi-resolut
 </p>
 
 ### 💘 Acknowledgements
-We thank the [SpikingJelly](https://github.com/fangwei123456/spikingjelly) library for a quickly implement.
+We thank the [SpikingJelly](https://github.com/fangwei123456/spikingjelly), [Spikingformer](https://github.com/zhouchenlin2096/Spikingformer) and [AR-Net](https://github.com/wanboyang/Anomaly_AR_Net_ICME_2020) for a quickly implement.
 
 ### :newspaper: Citation 
 If you find this project helpful for your research, please consider citing the following BibTeX entry.
