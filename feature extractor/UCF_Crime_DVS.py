@@ -101,39 +101,10 @@ class UCF_Crime_DVS(sjds.NeuromorphicDatasetFolder):
             target = self.target_transform(target)
 
         return sample, target ,path
-        # """
-        # Args:
-        #     index (int): Index
-        #
-        # Returns:
-        #     list: 包含一个或多个 (sample, target) 元组的列表,其中 sample 的时间维度小于等于 1000。
-        # """
-        # path, target = self.samples[index]
-        # sample = self.loader(path)
-        #
-        # # 对样本进行 resize
-        # split_samples = self.resize(sample)
-        #
-        # # 如果只有一个片段,直接返回
-        # if len(split_samples) == 1:
-        #     return split_samples[0], target
-        #
-        # # 如果有多个片段,将它们封装成一个列表返回
-        # return_samples = []
-        # for split_sample in split_samples:
-        #     if self.transform is not None:
-        #         split_sample = self.transform(split_sample)
-        #     if self.target_transform is not None:
-        #         target = self.target_transform(target)
-        #     return_samples.append((split_sample, target))
-        #
-        # return return_samples
+
 
     def resize(self, sample):
-        """
-        在这里添加对样本进行resize的逻辑
-        """
-        # 假设sample的格式为 (T, C, H, W)
+
         T, C, H, W = sample.shape
 
         # 逐帧对样本进行resize
@@ -147,70 +118,7 @@ class UCF_Crime_DVS(sjds.NeuromorphicDatasetFolder):
         resized_sample = torch.stack(resized_sample, dim=0)
 
         return resized_sample
-        # if T > 1000:
-        #     split_sizes = []
-        #     while T > 1000:
-        #         size = T // 2
-        #         split_sizes.append(size)
-        #         T = size
-        #     split_sizes.append(T)
-        #     split_samples = torch.split(torch.from_numpy(sample), split_sizes, dim=0)
-        #
-        #     # 对每个片段进行resize
-        #     resized_samples = []
-        #     for split_sample in split_samples:
-        #         t, c, h, w = split_sample.shape
-        #         resized_sample = []
-        #         for i in range(t):
-        #             frame = split_sample[i]
-        #             resized_frame = F.interpolate(frame.unsqueeze(0), size=(128, 128), mode='bilinear',
-        #                                           align_corners=False)
-        #             resized_sample.append(resized_frame.squeeze(0))
-        #         resized_sample = torch.stack(resized_sample, dim=0)
-        #         resized_samples.append(resized_sample)
-        #
-        #     return resized_samples
-        # else:
-        #     # 如果T小于等于1000,直接对整个样本进行resize
-        #     resized_sample = []
-        #     for i in range(T):
-        #         frame = torch.from_numpy(sample[i])
-        #         resized_frame = F.interpolate(frame.unsqueeze(0), size=(128, 128), mode='bilinear', align_corners=False)
-        #         resized_sample.append(resized_frame.squeeze(0))
-        #     resized_sample = torch.stack(resized_sample, dim=0)
-        #     return [resized_sample]
-
-    # def get_label_from_filename(filename):
-    #     if 'Abuse' in filename:
-    #         return 0
-    #     elif 'Arrest' in filename:
-    #         return 1
-    #     elif 'Arson' in filename:
-    #         return 2
-    #     elif 'Assault' in filename:
-    #         return 3
-    #     elif 'Burglary' in filename:
-    #         return 4
-    #     elif 'Explosion' in filename:
-    #         return 5
-    #     elif 'Fighting' in filename:
-    #         return 6
-    #     elif 'Normal' in filename:
-    #         return 7
-    #     elif 'Road' in filename:
-    #         return 8
-    #     elif 'Robbery' in filename:
-    #         return 9
-    #     elif 'Shooting' in filename:
-    #         return 10
-    #     elif 'Shoplifting' in filename:
-    #         return 11
-    #     elif 'Stealing' in filename:
-    #         return 12
-    #     elif 'Vandalism' in filename:
-    #         return 13
-    #     else:
-    #         return None
+        
 
     def get_label_from_filename(filename):
         label_mapping = {
