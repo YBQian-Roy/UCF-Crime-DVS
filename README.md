@@ -45,6 +45,13 @@ Our proposed multi-scale spiking fusion module (MSF) captures both multi-resolut
   <img src="./figures/framework.png" alt="Framework" width="800"/>
 </p>
 
+### 🔨: Feature extraction
+You can download the pre-training checkpoit [here](https://pan.baidu.com/s/1NnSrQ06M8JSIdUjENZnCFA?pwd=u3pd), password: u3pd.
+```
+python extractor.py
+```
+
+
 
 ### 💘 Acknowledgements
 We thank the [SpikingJelly](https://github.com/fangwei123456/spikingjelly), [Spikingformer](https://github.com/zhouchenlin2096/Spikingformer) and [AR-Net](https://github.com/wanboyang/Anomaly_AR_Net_ICME_2020) for a quickly implement.
