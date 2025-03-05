@@ -48,7 +48,7 @@ Our proposed multi-scale spiking fusion module (MSF) captures both multi-resolut
 ### 🔨: Feature extraction
 Requirements: timm==0.6.12; cupy==11.4.0; torch==1.12.1; spikingjelly==0.0.0.0.12; pyyaml;
 
-You can download the pre-training checkpoit [here](https://pan.baidu.com/s/1NnSrQ06M8JSIdUjENZnCFA?pwd=u3pd), password: u3pd.
+The above features use the [Spikingformer](https://github.com/zhouchenlin2096/Spikingformer)  to extract. You can download the pre-training checkpoit [here](https://pan.baidu.com/s/1NnSrQ06M8JSIdUjENZnCFA?pwd=u3pd), password: u3pd.
 ```
 python extractor.py
 ```
