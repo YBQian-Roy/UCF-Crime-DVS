@@ -20,6 +20,7 @@ Video anomaly detection plays a significant role in intelligent surveillance sys
 ### :fire: What's New
 - [2024.12.09] Our paper is accepted by AAAI-2025 !!!
 - [2024.12.12] The raw event file and pre-trained feature of UCF-Crime-DVS are all released.
+- [2025.3.5] The feature extractor and UCF-Crime-DVS dataset code are all released.
 
 ### :video_camera: UCF-Crime-DVS Samples
 <p align="center">
@@ -43,6 +44,7 @@ Our proposed multi-scale spiking fusion module (MSF) captures both multi-resolut
 <p align="center">
   <img src="./figures/framework.png" alt="Framework" width="800"/>
 </p>
+
 
 ### 💘 Acknowledgements
 We thank the [SpikingJelly](https://github.com/fangwei123456/spikingjelly), [Spikingformer](https://github.com/zhouchenlin2096/Spikingformer) and [AR-Net](https://github.com/wanboyang/Anomaly_AR_Net_ICME_2020) for a quickly implement.
