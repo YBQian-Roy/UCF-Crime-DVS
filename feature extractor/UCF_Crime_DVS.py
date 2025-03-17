@@ -38,47 +38,6 @@ class UCF_Crime_DVS(sjds.NeuromorphicDatasetFolder):
         self.segment_size = segment_size
 
 
-
-    # def __getitem__(self, index):
-    #     """
-    #     Args:
-    #         index (int): Index
-    #
-    #     Returns:
-    #         tuple: (image, target) where target is class_index of the target class.
-    #     """
-    #     path, target = self.samples[index]
-    #     sample = self.loader(path)
-    #
-    #     # 将样本分成多个小段
-    #     segments = self.split_sample(sample)
-    #
-    #     # 逐个小段进行预处理并返回
-    #     all_segments = []
-    #     for segment in segments:
-    #         segment = self.resize(segment)
-    #         if self.transform is not None:
-    #             segment = self.transform(segment)
-    #         all_segments.append(segment)
-    #     if self.target_transform is not None:
-    #         target = self.target_transform(target)
-    #     return all_segments, target
-    #
-    #
-    # def split_sample(self, sample):
-    #     """
-    #     将样本分成多个小段
-    #     """
-    #     T, C, H, W = sample.shape
-    #     num_segments = T // self.segment_size
-    #     if T % self.segment_size != 0:
-    #         num_segments += 1
-    #
-    #     for i in range(num_segments):
-    #         start = i * self.segment_size
-    #         end = min((i + 1) * self.segment_size, T)
-    #         yield sample[start:end]
-
     def __getitem__(self, index):
         """
         Args:
@@ -90,9 +49,6 @@ class UCF_Crime_DVS(sjds.NeuromorphicDatasetFolder):
         path, target = self.samples[index]
         sample = self.loader(path)
 
-
-
-        # 在这里添加自定义的预处理逻辑
         sample = self.resize(sample)
 
         if self.transform is not None:
@@ -107,14 +63,12 @@ class UCF_Crime_DVS(sjds.NeuromorphicDatasetFolder):
 
         T, C, H, W = sample.shape
 
-        # 逐帧对样本进行resize
         resized_sample = []
         for t in range(T):
             frame = torch.from_numpy(sample[t])
             resized_frame = F.interpolate(frame.unsqueeze(0), size=(224, 224), mode='bilinear', align_corners=False)
             resized_sample.append(resized_frame.squeeze(0))
-
-        # 将resize后的帧合并为新的样本
+            
         resized_sample = torch.stack(resized_sample, dim=0)
 
         return resized_sample
