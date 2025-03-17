@@ -172,12 +172,12 @@ def parse_args():
 def extract_features(model, data_loader, output_dir,device, print_freq=100, header='Feature Extraction:'):
     model.eval()
 
-    features = []  # 用于存储特征的列表
+    features = []  
     metric_logger = utils.MetricLogger(delimiter="  ")
     feature_count = 0
     with torch.no_grad():
         feature_count = 0
-        target_counts = {target: 0 for target in range(14)}  # 创建目标计数的字典
+        target_counts = {target: 0 for target in range(14)}  
         for image, target, file_paths,*rest in metric_logger.log_every(data_loader, print_freq, header):
             # image = image.to(device, non_blocking=True)
             target = target.to(device, non_blocking=True)
@@ -208,17 +208,8 @@ def extract_features(model, data_loader, output_dir,device, print_freq=100, head
                 functional.reset_net(model)
                 feature = feature.cpu()
 
-            # for i in range(N):
-            #     target_value = target[i].item()  # 获取目标的值
-            #     target_counts[target_value] += 1  # 增加指定目标的计数
-            #     feature_filename = f'{target_value}_feature{target_counts[target_value]:03d}.npy'
-            #     feature_path = os.path.join(output_dir, feature_filename)
-            #     if not os.path.exists(output_dir):
-            #         os.makedirs(output_dir)
-            #     np.save(feature_path, feature[i].numpy())
-
             for i in range(N):
-                file_path = rest[i]  # 获取原始输入文件路径
+                file_path = rest[i]  
                 feature_path = os.path.join(output_dir,
                                             f"{os.path.splitext(os.path.basename(file_path[0]))[0]}_feature.npy")
                 if not os.path.exists(output_dir):
@@ -226,35 +217,6 @@ def extract_features(model, data_loader, output_dir,device, print_freq=100, head
                 np.save(feature_path, feature[i].numpy())
 
 
-    # with torch.no_grad():
-    #     feature_count = 0
-    #     target_counts = {target: 0 for target in range(14)}  # 创建目标计数的字典
-    #     for image, target, *rest in metric_logger.log_every(data_loader, print_freq, header):
-    #         image = image.to(device, non_blocking=True)
-    #         target = target.to(device, non_blocking=True)
-    #         image = image.float()
-    #         N, T, C, H, W = image.shape
-    #         for i in range(N):
-    #             target_value = target[i].item()  # 获取目标的值
-    #             target_counts[target_value] += 1  # 增加指定目标的计数
-    #         feature = model(image)
-    #         functional.reset_net(model)
-    #         feature = feature.cpu()
-    #         target_value = target[i].item()
-    #         feature_filename = f'{target_value}_feature{target_counts[target_value]:03d}.npy'
-    #         feature_path = os.path.join(output_dir, feature_filename)
-    #         if not os.path.exists(output_dir):
-    #             os.makedirs(output_dir)
-    #         np.save(feature_path, feature)
-    #         # # 将feature拆分为N个(T, 1, 256)的张量
-    #         # for i in range(N):
-    #         #     sample_feature = feature[:, i, :].unsqueeze(1)  # 形状变为(T, 1, 256)
-    #         #     target_value = target[i].item()
-    #         #     feature_filename = f'{target_value}_feature{target_counts[target_value]:03d}.npy'
-    #         #     feature_path = os.path.join(output_dir, feature_filename)
-    #         #     if not os.path.exists(output_dir):
-    #         #         os.makedirs(output_dir)
-    #         #     np.save(feature_path, sample_feature.cpu().numpy())
 
 
     return features
@@ -295,7 +257,6 @@ def main(args):
     device = torch.device(args.device)
     data_path = args.data_path
 
-    # 在这里加载你的数据
     # data_loader_test = load_data(data_path, args.T,args.batch_size,args.workers)
     dataset_train, dataset_test, train_sampler, test_sampler = load_data(data_path, args.distributed, args.T)
     # dataset_test, test_sampler = load_data(data_path, args.distributed, args.T)
@@ -319,7 +280,6 @@ def main(args):
         collate_fn=pad_sequence_collate,
         pin_memory=True)
 
-    #创建你的模型
     model = create_model(
         'Spikingformer',
          pretrained=False,
@@ -357,9 +317,6 @@ def main(args):
 
         checkpoint = torch.load(args.resume, map_location='cpu')
 
-        print(checkpoint.keys())
-
-        # 假设权重存储在'model'键下
         if 'model' in checkpoint:
             state_dict = checkpoint['model']
         elif 'state_dict' in checkpoint:
@@ -367,33 +324,18 @@ def main(args):
         else:
             raise KeyError("Cannot find model weights in checkpoint")
 
-        # 获取第一个卷积层的权重
-        conv1_weight = state_dict['patch_embed.proj_conv.weight']
-
-        # 检查原始权重的形状
-        print("Original weight shape:", conv1_weight.shape)
-
-        # 仅保留前两个通道的权重
-        new_conv1_weight = conv1_weight[:, :2, :, :]
-
-        print("New weight shape:", new_conv1_weight.shape)
-
-        # 更新权重字典
-        state_dict['patch_embed.proj_conv.weight'] = new_conv1_weight
         model.load_state_dict(checkpoint['state_dict'], strict=False)
         model_without_ddp.load_state_dict(checkpoint['state_dict'], strict=False)
         print('checkpoint is loaded')
-
 
     output_dir = '/home/qyb/frame16_feature'
     if not os.path.exists(output_dir):
         utils.mkdir(output_dir)
 
-    # 提取特征并保存它们
     if args.test_only:
         extract_features(model, data_loader_train, output_dir, device)
         # extract_features(model, data_loader_test, output_dir, device)
-        print(f"特征已提取并保存到{output_dir}")
+        print(f"features have saved in: {output_dir}")
         return
 
 if __name__ == "__main__":
