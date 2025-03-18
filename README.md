@@ -60,3 +60,15 @@ We thank the [SpikingJelly](https://github.com/fangwei123456/spikingjelly), [Spi
 
 ### :newspaper: Citation 
 If you find this project helpful for your research, please consider citing the following BibTeX entry.
+```bibtex
+@misc{qian2025ucfcrimedvsnoveleventbaseddataset,
+      title={UCF-Crime-DVS: A Novel Event-Based Dataset for Video Anomaly Detection with Spiking Neural Networks}, 
+      author={Yuanbin Qian and Shuhan Ye and Chong Wang and Xiaojie Cai and Jiangbo Qian and Jiafei Wu},
+      year={2025},
+      eprint={2503.12905},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2503.12905}, 
+}
+```
+
