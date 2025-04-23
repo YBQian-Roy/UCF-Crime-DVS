@@ -21,6 +21,7 @@ Video anomaly detection plays a significant role in intelligent surveillance sys
 - [2024.12.09] Our paper is accepted by AAAI-2025 !!!
 - [2024.12.12] The raw event file and pre-trained feature of UCF-Crime-DVS are all released.
 - [2025.3.5] The feature extractor and UCF-Crime-DVS dataset code are all released.
+- [2025.4.23] Links to onedrive for Pre-trained features and event frames are released.
 
 ### :video_camera: UCF-Crime-DVS Samples
 <p align="center">
@@ -42,7 +43,10 @@ Video anomaly detection plays a significant role in intelligent surveillance sys
 
 * **Download from Onedrive**: 
 ```
-To be updated...
+[Pre-trained feature] Link: https://1drv.ms/u/c/d7df95ea2b5a40f1/EQ6gHgQE6RFOlPJLRdH21QABhtyfMCiOfYzBVabFpHxtvQ
+[Event frame] Link: https://1drv.ms/u/c/d7df95ea2b5a40f1/ES7KKwU4hR9KmyvY9P06ft0BvfH-AQKCbAlWygapt4ALNw
+[Npz Event file] Link: To be updated...
+[Raw Event file] Link: To be updated...
 ```
 ### :gem: Framework
 Our proposed multi-scale spiking fusion module (MSF) captures both multi-resolution local spiking dependencies (light green block) within individual clip, and global spiking dependencies (light yellow block) between event clips. Finally, these dependencies are seamlessly integrated based on the unique characteristics of the spiking feature (light blue block).
@@ -66,6 +70,15 @@ We thank the [SpikingJelly](https://github.com/fangwei123456/spikingjelly), [Spi
 ### :newspaper: Citation 
 If you find this project helpful for your research, please consider citing the following BibTeX entry.
 ```bibtex
+@inproceedings{qian2025ucf,
+  title={UCF-Crime-DVS: A Novel Event-Based Dataset for Video Anomaly Detection with Spiking Neural Networks},
+  author={Qian, Yuanbin and Ye, Shuhan and Wang, Chong and Cai, Xiaojie and Qian, Jiangbo and Wu, Jiafei},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={6},
+  pages={6577--6585},
+  year={2025}
+}
 @misc{qian2025ucfcrimedvsnoveleventbaseddataset,
       title={UCF-Crime-DVS: A Novel Event-Based Dataset for Video Anomaly Detection with Spiking Neural Networks}, 
       author={Yuanbin Qian and Shuhan Ye and Chong Wang and Xiaojie Cai and Jiangbo Qian and Jiafei Wu},
