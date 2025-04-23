@@ -79,6 +79,7 @@ If you find this project helpful for your research, please consider citing the f
   pages={6577--6585},
   year={2025}
 }
+
 @misc{qian2025ucfcrimedvsnoveleventbaseddataset,
       title={UCF-Crime-DVS: A Novel Event-Based Dataset for Video Anomaly Detection with Spiking Neural Networks}, 
       author={Yuanbin Qian and Shuhan Ye and Chong Wang and Xiaojie Cai and Jiangbo Qian and Jiafei Wu},
