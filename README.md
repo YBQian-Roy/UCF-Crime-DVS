@@ -22,6 +22,7 @@ Video anomaly detection plays a significant role in intelligent surveillance sys
 - [2024.12.12] The raw event file and pre-trained feature of UCF-Crime-DVS are all released.
 - [2025.3.5] The feature extractor and UCF-Crime-DVS dataset code are all released.
 - [2025.4.23] Links to onedrive for Pre-trained features and event frames are released.
+- [2025.8.7] The model and training code are all released.
 
 ### :video_camera: UCF-Crime-DVS Samples
 <p align="center">
@@ -61,6 +62,13 @@ The above features use the [Spikingformer](https://github.com/zhouchenlin2096/Sp
 ```
 python extractor.py
 ```
+
+### 🔨: Training
+Requirements: CUDA; numpy; tqdm; torchvision; timm==0.6.12; cupy==11.4.0; torch==1.12.1; spikingjelly==0.0.0.0.12;
+```
+python main.py
+```
+
 
 
 
