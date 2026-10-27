@@ -47,7 +47,7 @@ Video anomaly detection plays a significant role in intelligent surveillance sys
 [Pre-trained feature] Link: https://1drv.ms/u/c/d7df95ea2b5a40f1/EQ6gHgQE6RFOlPJLRdH21QABhtyfMCiOfYzBVabFpHxtvQ
 [Event frame] Link: https://1drv.ms/u/c/d7df95ea2b5a40f1/ES7KKwU4hR9KmyvY9P06ft0BvfH-AQKCbAlWygapt4ALNw
 [Npz Event file] Link: https://1drv.ms/f/c/d7df95ea2b5a40f1/EgV-dSfAofxOiC4Z049EoFUByi5ViNoDd-3NyTtsSMH2EA
-[Raw Event file] Link: To be updated...
+[pre-training checkpoit] Link: https://1drv.ms/f/c/1d60becf437ebb51/IgDAd7hHfABsSpf7EnzOSt8uAWhZ-OG45mx3oxPBL3Zt-aw
 ```
 ### :gem: Framework
 Our proposed multi-scale spiking fusion module (MSF) captures both multi-resolution local spiking dependencies (light green block) within individual clip, and global spiking dependencies (light yellow block) between event clips. Finally, these dependencies are seamlessly integrated based on the unique characteristics of the spiking feature (light blue block).
